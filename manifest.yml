@@ -1,0 +1,11 @@
+applications:
+- disk_quota: 1024M
+  host: cloudant-redis-performance-test-ippei
+  name: cloudant-redis-performance-test-ippei
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 256M
+  services:
+    - cloudant-ippei
+    - redis-30mb-ippei
