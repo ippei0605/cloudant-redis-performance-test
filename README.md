@@ -3,6 +3,12 @@
 * お金のかからない方法で性能比較する。
 * Cloudant, Redis Cloud 共に Location は US South。
 
+## 準備
+
+```
+
+
+
 ## 参考資料
 * https://www.npmjs.com/package/@cloudant/cloudant
 * https://www.npmjs.com/package/redis

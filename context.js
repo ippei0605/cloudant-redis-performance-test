@@ -16,14 +16,13 @@ const
 // 環境変数を取得する。
 const appEnv = cfenv.getAppEnv();
 
-console.log("####",cloudantCreds,redisCreds);
-
-
 /**
  * コンテキスト
  * @type {{PORT: *, URL: *, APIKEY: *, RESOURCE_INSTANCE_ID: *}}
  */
 module.exports = {
     PORT: appEnv.port,
-    URL: appEnv.url
+    URL: appEnv.url,
+    CLOUDANT_URL: cloudantCreds.url,
+    REDIS: redisCreds
 };
