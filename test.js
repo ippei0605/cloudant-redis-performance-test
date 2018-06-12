@@ -6,7 +6,7 @@
 'use strict';
 
 // テスト対象のURLを設定する。
-const URL = 'https://cloudant-redis-performance-test-ippei.mybluemix.net/cloudant/key1';
+const URL = 'https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key3';
 
 // モジュールを読込む。
 const

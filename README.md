@@ -5,6 +5,27 @@
 
 ## 準備
 
+```
+{
+  "message": "Text data"
+}
+```
+
+```
+{
+  "message": "Text and 20kb jpg data",
+  "image": "data:image/jpeg;base64,**** 20kb jpg data ****"
+}
+```
+
+```
+{
+  "message": "Text and 20kb jpg data",
+  "image": "data:image/jpeg;base64,**** 200kb jpg data ****"
+}
+```
+
+
 Object をリードを測定
 (Redis は JSON.stringify , parse)
 
