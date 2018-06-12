@@ -7,6 +7,8 @@
 
 ```
 
+Object をリードを測定
+(Redis は JSON.stringify , parse)
 
 
 ## 参考資料
