@@ -134,7 +134,7 @@ maxRequests  concurrency  rps     meanLatencyMs  maxLatencyMs  minLatencyMs
         - 20 Lookups/sec
         - 10 Writes/sec
         - 5 Queries/sec
-* かかっている時間の大半はクライアント - Webアプリ間の通信と思われる。
+* かかっている時間の大半はクライアント - Webアプリ間の通信および Cloudant のリトライ待ち(0.5秒)と思われる。
     - より精度をあげるには、US South の IaaS から負荷テストを実施するなどが考えられる。
         - API呼出しをロギングして後で集計する方法もあるかもしれないが、ロギングが重りになるかも？ (めんどくさいだけ？)
 
