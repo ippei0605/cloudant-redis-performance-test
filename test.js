@@ -6,7 +6,7 @@
 'use strict';
 
 // テスト対象のURLを設定する。
-const URL = 'https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key3';
+const URL = 'https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key1';
 
 // モジュールを読込む。
 const
@@ -51,6 +51,12 @@ return loadTest(100, 5)
     });
 
 
+/**
+ * 負荷テストを実行する。
+ * @param maxRequests リクエスト数
+ * @param concurrency 同時接続数
+ * @returns {Promise}
+ */
 function loadTest (maxRequests, concurrency) {
     return new Promise((resolve, reject) => {
         loadtest.loadTest({

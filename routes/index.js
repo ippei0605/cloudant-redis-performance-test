@@ -39,11 +39,6 @@ client.on("error", err => {
 const router = express.Router();
 module.exports = router;
 
-// Dummy
-router.get('/', (req, res) => {
-    res.sendStatus(200);
-});
-
 router.get('/cloudant/:key', (req, res) => {
     cache.get(req.params.key, (error, value) => {
         if (error) {

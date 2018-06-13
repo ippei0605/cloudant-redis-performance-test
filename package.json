@@ -12,14 +12,9 @@
     "login": "ibmcloud login -a https://api.ng.bluemix.net -c 48984e66e3b9b429a0cfe14d0637f075 -o sieg_dev -s survey",
     "service_create": "ibmcloud service create cloudantNoSQLDB Lite cloudant-ippei && ibmcloud service create rediscloud 30mb redis-30mb-ippei",
     "service_delete": "ibmcloud service delete cloudant-ippei -f && ibmcloud service delete redis-30mb-ippei -f",
+    "page": "opener https://cloudant-redis-performance-test-ippei.mybluemix.net/",
     "push": "ibmcloud app push cloudant-redis-performance-test-ippei",
-    "vcap_services": "ibmcloud app env cloudant-redis-performance-test-ippei | node node_modules/cfenv-one-liner -p VCAP_SERVICES",
-    "loadtest_cloudant_key1": "loadtest -n 10 -c 1 https://cloudant-redis-performance-test-ippei.mybluemix.net/cloudant/key1",
-    "loadtest_cloudant_key2": "loadtest -n 10 -c 1 https://cloudant-redis-performance-test-ippei.mybluemix.net/cloudant/key2",
-    "loadtest_cloudant_key3": "loadtest -n 10 -c 1 https://cloudant-redis-performance-test-ippei.mybluemix.net/cloudant/key3",
-    "loadtest_redis_key1": "loadtest -n 10 -c 1 https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key1",
-    "loadtest_redis_key2": "loadtest -n 10 -c 1 https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key2",
-    "loadtest_redis_key3": "loadtest -n 10 -c 1 https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key3"
+    "vcap_services": "ibmcloud app env cloudant-redis-performance-test-ippei | node node_modules/cfenv-one-liner -p VCAP_SERVICES"
   },
   "dependencies": {
     "@cloudant/cloudant": "^2.2.0",
@@ -33,6 +28,7 @@
     "vcap_services": "^0.3.4"
   },
   "devDependencies": {
-    "cfenv-one-liner": "0.0.2"
+    "cfenv-one-liner": "0.0.2",
+    "opener": "^1.4.3"
   }
 }
