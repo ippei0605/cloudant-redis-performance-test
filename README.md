@@ -1,7 +1,7 @@
 # Cloudant vs. Redis Performance Test
 
 ## はじめに
-Cloudant と Redis の性能を比較する。
+とあるシステムのキャッシュ機能追加開発に関連して、Cloudant と Redis の性能を比較する。
 
 ### コンセプト
 * Node.js 推しなので、Node アプリを作成する。
@@ -18,11 +18,13 @@ Cloudant と Redis の性能を比較する。
     |#|Data|Database|URL|
     |--:|----|------|----|
     |  1|{"message": "Text data"}|Cloudant|https://cloudant-redis-performance-test-ippei.mybluemix.net/cloudant/key1|
-    |  2|same as above|Redis|https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key1|
+    |  2|同上|Redis|https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key1|
     |  3|{"message": "Text and 20kb jpg data", "image": "data:image/jpeg;base64,**** 20kb jpg data ****"}|Cloudant|https://cloudant-redis-performance-test-ippei.mybluemix.net/cloudant/key2|
-    |  4|same as above|Redis|https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key2|
+    |  4|同上|Redis|https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key2|
     |  5|{"message": "Text and 200kb jpg data", "image": "data:image/jpeg;base64,**** 200kb jpg data ****"}|Cloudant|https://cloudant-redis-performance-test-ippei.mybluemix.net/cloudant/key3|
-    |  6|same as above|Redis|https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key3|
+    |  6|同上|Redis|https://cloudant-redis-performance-test-ippei.mybluemix.net/redis/key3|
+
+    > とあるシステムでキャッシュしたいデータはオブジェクト型である。Redis はオブジェクトをストアできないので、文字列化 (JSON.stringify) した JSON データをオブジェクト化 (JSON.parse) してクライアントに返す。
 
 1. test.js の URL、リクエスト数、同時接続数を変更しながら、負荷テストを実行する。
     - 測定対象はクライアント (日本にあるノートPC) から IBM Cloud US South まで。
