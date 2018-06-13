@@ -136,7 +136,19 @@ maxRequests  concurrency  rps     meanLatencyMs  maxLatencyMs  minLatencyMs
         - 5 Queries/sec
 * かかっている時間の大半はクライアント - Webアプリ間の通信および Cloudant のリトライ待ち(0.5秒)と思われる。
     - より精度をあげるには、US South の IaaS から負荷テストを実施するなどが考えられる。
-        - API呼出しをロギングして後で集計する方法もあるかもしれないが、ロギングが重りになるかも？ (めんどくさいだけ？)
+    - 負荷テストはできないが、DBレスポンスの実測結果を以下に示す。
+
+        |Data|DB|1回目|2回目|3回目|4回目|5回目|平均|最速|最遅|
+        |---------|--------|--:|--:|--:|--:|--:|--:|--:|--:|
+        |Text data|cloudant| 12|  7|  9| 12|  8|9.6|  7| 12|
+        |同上      |redis  |  2|  2|  2|   1| 1|1.6|  1|  2|
+        |Text and 20kb jpg data|cloudant|15|10|16|12|13|13.2|10|16|
+        |同上|redis|5|4|5|4|4|4.4|4|5|
+        |Text and 200kb jpg data|cloudant|32|38|27|35|34|33.2|27|38|
+        |同上|redis|18|16|13|14|14|15|13|18|
+
+        > 単位 ms
+
 
 ## 参考資料
 * https://www.npmjs.com/package/@cloudant/cloudant

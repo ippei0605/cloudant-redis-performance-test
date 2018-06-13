@@ -40,21 +40,29 @@ const router = express.Router();
 module.exports = router;
 
 router.get('/cloudant/:key', (req, res) => {
+    const from = Date.now();
     cache.get(req.params.key, (error, value) => {
         if (error) {
             console.log('error:', error);
         } else {
-            res.json(value);
+            res.json({
+                db_response_ms: Date.now() - from,
+                data: value
+            });
         }
     });
 });
 
 router.get('/redis/:key', (req, res) => {
+    const from = Date.now();
     client.get(req.params.key, (error, value) => {
         if (error) {
             console.log('error:', error);
         } else {
-            res.json(JSON.parse(value));
+            res.json({
+                db_response_ms: Date.now() - from,
+                data: JSON.parse(value)
+            });
         }
     });
 });
